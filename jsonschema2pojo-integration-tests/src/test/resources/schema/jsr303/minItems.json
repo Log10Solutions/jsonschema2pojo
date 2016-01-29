@@ -1,9 +1,0 @@
-{
-    "type" : "object",
-    "properties" : {
-        "minItems" : {
-            "type" : "array",
-            "minItems" : 5
-        }
-    }
-}

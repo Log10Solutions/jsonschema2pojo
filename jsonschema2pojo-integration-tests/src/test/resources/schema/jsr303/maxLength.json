@@ -1,9 +1,0 @@
-{
-    "type" : "object",
-    "properties" : {
-        "maxLength" : {
-            "type" : "string",
-            "maxLength" : 10
-        }
-    }
-}

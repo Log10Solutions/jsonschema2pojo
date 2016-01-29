@@ -2,44 +2,21 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>5</version>
-    </parent>
-
     <groupId>org.jsonschema2pojo</groupId>
     <artifactId>jsonschema2pojo</artifactId>
-    <version>0.4.19-LOG10</version>
+    <version>0.4.19-LOG10.3-SNAPSHOT</version>
 
     <packaging>pom</packaging>
     <name>jsonschema2pojo</name>
     <description>Generate DTO style Java classes from JSON Schema documents</description>
-    <url>https://github.com/joelittlejohn/jsonschema2pojo</url>
+    <url>https://github.com/Log10Solutions/jsonschema2pojo</url>
 
     <modules>
         <module>jsonschema2pojo-ant</module>
         <module>jsonschema2pojo-cli</module>
         <module>jsonschema2pojo-core</module>
-        <!--module>jsonschema2pojo-gradle-plugin</module-->
         <module>jsonschema2pojo-maven-plugin</module>
-        <!--module>jsonschema2pojo-integration-tests</module-->
     </modules>
-
-    <developers>
-        <developer>
-            <name>Joe Littlejohn</name>
-            <email>joe.littlejohn@gmail.com</email>
-            <organization>Nokia MixRadio</organization>
-            <organizationUrl>http://mixrad.io</organizationUrl>
-        </developer>
-    </developers>
-
-    <scm>
-        <url>https://github.com/joelittlejohn/jsonschema2pojo</url>
-        <connection>scm:git:git@github.com:joelittlejohn/jsonschema2pojo.git</connection>
-        <developerConnection>scm:git:git@github.com:joelittlejohn/jsonschema2pojo.git</developerConnection>
-    </scm>
 
     <licenses>
         <license>
@@ -401,17 +378,57 @@
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Log10 Releases</name>
+            <!-- <url>https://portal.log10solutions.com/nexus/content/repositories/releases/</url> -->
+            <url>http://portal.log10.vpn/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Log10 Snapshots</name>
+            <!-- <url>https://portal.log10solutions.com/n<exus/content/repositories/snapshots/</url> -->
+            <url>http://portal.log10.vpn/nexus/content/repositories/snapshots/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+
+        <site>
+            <id>log10.maven.site</id>
+            <url>scp://portal.log10solutions.com/var/www/maven_site</url>
+        </site>
+    </distributionManagement>
+
     <repositories>
         <repository>
-            <id>maven-central</id>
-            <url>http://repo1.maven.org/maven2</url>
+            <id>log10-snapshots</id>
+            <url>http://portal.log10.vpn/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
         </repository>
         <repository>
-            <id>gradle-workaround</id>
-            <url>http://repo.spring.io/plugins-release</url>
+            <id>log10-releases</id>
+            <url>http://portal.log10.vpn/nexus/content/repositories/releases/</url>
             <snapshots>
-              <enabled>false</enabled>
+                <enabled>false</enabled>
             </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>all-proxy</id>
+            <url>http://portal.log10.vpn/nexus/content/groups/all-proxy/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </repository>
     </repositories>
 
