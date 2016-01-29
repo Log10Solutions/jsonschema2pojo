@@ -1,10 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+	<parent>
+		<groupId>com.log10solutions</groupId>
+		<artifactId>log10-parent</artifactId>
+		<version>2.3.0</version>
+	</parent>
+	
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jsonschema2pojo</groupId>
     <artifactId>jsonschema2pojo</artifactId>
-    <version>0.4.19-LOG10.3-SNAPSHOT</version>
+    <version>0.4.19-LOG10.2-SNAPSHOT</version>
 
     <packaging>pom</packaging>
     <name>jsonschema2pojo</name>
@@ -169,70 +175,70 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.1</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.1.2</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>doclint-java8-disable</id>
-            <activation>
-                <jdk>[1.8,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--         <profile> -->
+<!--             <id>release-sign-artifacts</id> -->
+<!--             <activation> -->
+<!--                 <property> -->
+<!--                     <name>performRelease</name> -->
+<!--                     <value>true</value> -->
+<!--                 </property> -->
+<!--             </activation> -->
+<!--             <build> -->
+<!--                 <plugins> -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-gpg-plugin</artifactId> -->
+<!--                         <version>1.1</version> -->
+<!--                         <executions> -->
+<!--                             <execution> -->
+<!--                                 <id>sign-artifacts</id> -->
+<!--                                 <phase>verify</phase> -->
+<!--                                 <goals> -->
+<!--                                     <goal>sign</goal> -->
+<!--                                 </goals> -->
+<!--                             </execution> -->
+<!--                         </executions> -->
+<!--                     </plugin> -->
+<!--                 </plugins> -->
+<!--             </build> -->
+<!--         </profile> -->
+<!--         <profile> -->
+<!--             <id>release</id> -->
+<!--             <build> -->
+<!--                 <plugins> -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-source-plugin</artifactId> -->
+<!--                         <version>2.1.2</version> -->
+<!--                         <executions> -->
+<!--                             <execution> -->
+<!--                                 <id>attach-sources</id> -->
+<!--                                 <goals> -->
+<!--                                     <goal>jar</goal> -->
+<!--                                 </goals> -->
+<!--                             </execution> -->
+<!--                         </executions> -->
+<!--                     </plugin> -->
+<!--                 </plugins> -->
+<!--             </build> -->
+<!--         </profile> -->
+<!--         <profile> -->
+<!--             <id>doclint-java8-disable</id> -->
+<!--             <activation> -->
+<!--                 <jdk>[1.8,)</jdk> -->
+<!--             </activation> -->
+<!--             <build> -->
+<!--                 <plugins> -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-javadoc-plugin</artifactId> -->
+<!--                         <configuration> -->
+<!--                             <additionalparam>-Xdoclint:none</additionalparam> -->
+<!--                         </configuration> -->
+<!--                     </plugin> -->
+<!--                 </plugins> -->
+<!--             </build> -->
+<!--         </profile> -->
     </profiles>
 
     <dependencies>
@@ -378,58 +384,58 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>Log10 Releases</name>
-            <!-- <url>https://portal.log10solutions.com/nexus/content/repositories/releases/</url> -->
-            <url>http://portal.log10.vpn/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Log10 Snapshots</name>
-            <!-- <url>https://portal.log10solutions.com/n<exus/content/repositories/snapshots/</url> -->
-            <url>http://portal.log10.vpn/nexus/content/repositories/snapshots/</url>
-            <uniqueVersion>false</uniqueVersion>
-        </snapshotRepository>
+<!--     <distributionManagement> -->
+<!--         <repository> -->
+<!--             <id>releases</id> -->
+<!--             <name>Log10 Releases</name> -->
+<!--             <url>https://portal.log10solutions.com/nexus/content/repositories/releases/</url> -->
+<!--             <url>http://portal.log10.vpn/nexus/content/repositories/releases/</url> -->
+<!--         </repository> -->
+<!--         <snapshotRepository> -->
+<!--             <id>snapshots</id> -->
+<!--             <name>Log10 Snapshots</name> -->
+<!--             <url>https://portal.log10solutions.com/n<exus/content/repositories/snapshots/</url> -->
+<!--             <url>http://portal.log10.vpn/nexus/content/repositories/snapshots/</url> -->
+<!--             <uniqueVersion>false</uniqueVersion> -->
+<!--         </snapshotRepository> -->
 
-        <site>
-            <id>log10.maven.site</id>
-            <url>scp://portal.log10solutions.com/var/www/maven_site</url>
-        </site>
-    </distributionManagement>
+<!--         <site> -->
+<!--             <id>log10.maven.site</id> -->
+<!--             <url>scp://portal.log10solutions.com/var/www/maven_site</url> -->
+<!--         </site> -->
+<!--     </distributionManagement> -->
 
-    <repositories>
-        <repository>
-            <id>log10-snapshots</id>
-            <url>http://portal.log10.vpn/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>log10-releases</id>
-            <url>http://portal.log10.vpn/nexus/content/repositories/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>all-proxy</id>
-            <url>http://portal.log10.vpn/nexus/content/groups/all-proxy/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
+<!--     <repositories> -->
+<!--         <repository> -->
+<!--             <id>log10-snapshots</id> -->
+<!--             <url>http://portal.log10.vpn/nexus/content/repositories/snapshots/</url> -->
+<!--             <snapshots> -->
+<!--                 <enabled>true</enabled> -->
+<!--             </snapshots> -->
+<!--             <releases> -->
+<!--                 <enabled>false</enabled> -->
+<!--             </releases> -->
+<!--         </repository> -->
+<!--         <repository> -->
+<!--             <id>log10-releases</id> -->
+<!--             <url>http://portal.log10.vpn/nexus/content/repositories/releases/</url> -->
+<!--             <snapshots> -->
+<!--                 <enabled>false</enabled> -->
+<!--             </snapshots> -->
+<!--             <releases> -->
+<!--                 <enabled>true</enabled> -->
+<!--             </releases> -->
+<!--         </repository> -->
+<!--         <repository> -->
+<!--             <id>all-proxy</id> -->
+<!--             <url>http://portal.log10.vpn/nexus/content/groups/all-proxy/</url> -->
+<!--             <snapshots> -->
+<!--                 <enabled>true</enabled> -->
+<!--             </snapshots> -->
+<!--             <releases> -->
+<!--                 <enabled>true</enabled> -->
+<!--             </releases> -->
+<!--         </repository> -->
+<!--     </repositories> -->
 
 </project>
